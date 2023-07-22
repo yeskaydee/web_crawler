@@ -42,3 +42,5 @@ note for capials check in urls , the URL constructor in the `crawl.js` actually 
 `npm install jsdom` <br/>
 ~ Read [JSDOM documenatation](https://www.google.com/search?q=jsdom+documentation&oq=JSDOM+documentation&aqs=chrome.0.0i512j0i15i22i30j0i390i650.5206j0j7&sourceid=chrome&ie=UTF-8)
 
+TIMELINE TILL NOW
+![Alt text](image-2.png)
