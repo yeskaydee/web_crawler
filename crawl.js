@@ -1,5 +1,33 @@
 const { JSDOM } = require("jsdom");
 
+async function crawlPage(currentURL){
+    console.log(`Currently crawling  "${currentURL}" `)
+
+    try{
+        const resp = await fetch(currentURL)
+
+        if(resp.status>399){
+            console.log(`error in fetch with status code : ${resp.status} on page ${currentURL}`)
+            return
+        }  // Test:- https://hostname.in/garbagepath
+
+
+        const contentType = resp.headers.get("content-type")
+        if(!contentType.includes("text/html")){ //application/xml is other type, text/html may have other parts like UTF encoding =>includes()
+            console.log(`not-html response, as content type : ${contentType} on page ${currentURL}`)
+            return
+        }// Test:- https://hostname.in/img.jpeg
+
+        console.log(await resp.text())
+
+    }catch(err){
+        console.log(`error in fetch:- "${err.message}", on page "${currentURL}"` )
+    }
+
+
+}
+
+
 function getURLSFromHTML(htmlBody, baseURL) {
   const urls = [];
   const dom = new JSDOM(htmlBody); //string to obect like YAML and JSON
@@ -43,4 +71,5 @@ module.exports = {
   //makes it available to other js
   getURLSFromHTML,
   normaliseURL,
+  crawlPage
 };

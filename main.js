@@ -1,3 +1,6 @@
+const {crawlPage} = require('./crawl.js')
+
+
 
 function main(){
     if (process.argv.length<3){
@@ -12,6 +15,7 @@ function main(){
 
 
     console.log(`🕷️ Spider Crawls the ${baseURL} `)
+    crawlPage(baseURL)
 }
 
 main() 
