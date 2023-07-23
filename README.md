@@ -5,6 +5,12 @@ Making a web_crawler
 .nvmrc is for setting the node version
 
 `nvm init ` for generating the json file(package.json), i am going to use .gitignore to ignore all the packages that might be installed while building this, so use `nvm install` , package.json is going to handle it all
+`npm install --save-dev jest` for developer only
+adding node_modules to .gitignore as specified before `touch .gitignore`
+
+`npm install jsdom` <br/>
+~ Read [JSDOM documenatation](https://www.google.com/search?q=jsdom+documentation&oq=JSDOM+documentation&aqs=chrome.0.0i512j0i15i22i30j0i390i650.5206j0j7&sourceid=chrome&ie=UTF-8)
+
 
 modifed the script in package.json => `npm start ` for running, main.js is entry point
 
@@ -15,9 +21,7 @@ modifed the script in package.json => `npm start ` for running, main.js is entry
   },
 ```
 
-`npm install --save-dev jest` for developer only
 
-adding node_modules to .gitignore as specified before `touch .gitignore`
 
 ```
  "test": "echo \"Error: no test specified\" && exit 1" to "jest"
@@ -39,8 +43,6 @@ After modifying the crawl.js to take only the hostname+path, stripping the proto
 
 note for capials check in urls , the URL constructor in the `crawl.js` actually takes care of it
 
-`npm install jsdom` <br/>
-~ Read [JSDOM documenatation](https://www.google.com/search?q=jsdom+documentation&oq=JSDOM+documentation&aqs=chrome.0.0i512j0i15i22i30j0i390i650.5206j0j7&sourceid=chrome&ie=UTF-8)
 
 TIMELINE TILL NOW
 
