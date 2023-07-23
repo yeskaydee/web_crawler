@@ -46,3 +46,22 @@ TIMELINE TILL NOW
 
 ~gitlens
 ![Alt text](image-2.png)
+
+Note all the Tests are done using jest
+so `npm test`
+![Alt text](image-5.png)
+
+
+
+Demo
+`npm run start https://stephendavidwilliams.com/ai-in-data-engineering-part-2`
+![Alt text](image-3.png)
+![Alt text](image-4.png)
+
+
+Note:- Although this crawler is working fine with most of the websites,
+There is a website called Medium, crawling throught that website is making it loop endlessly, for this instead of incrementing the count of the already visited websites, we can<br>
+1. Stop at a website which have all the link repeated from the already visited URLs
+2. Stop a the exact moment the link is repeated <-- seems faulty in logic
+
+I am thinking of implementing these two later

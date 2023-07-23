@@ -1,5 +1,5 @@
 const {crawlPage} = require('./crawl.js')
-
+const {printReport} = require('./report.js')
 
 
 async function main(){
@@ -17,9 +17,7 @@ async function main(){
     console.log(`🕷️ Spider Crawls the ${baseURL} `)
     const pages = await crawlPage(baseURL,baseURL,{}) //currentURL at starrt is baseURL , {} empty object for pages
 
-    for(const page of Object.entries(pages)){ //cuz pages is not an array so ofcourse 
-        console.log(page)
-    }
+    printReport(pages)
 
 }
 
