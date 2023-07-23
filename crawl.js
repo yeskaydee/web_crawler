@@ -1,30 +1,55 @@
 const { JSDOM } = require("jsdom");
 
-async function crawlPage(currentURL){
-    console.log(`Currently crawling  "${currentURL}" `)
+async function crawlPage(baseURL,currentURL,pages){
+    console.log(`Currently crawling  ${currentURL} `)
+
+
+    //calling back to back 
+    const baseURLObj = new URL(baseURL)
+    const currentURLObj = new URL(currentURL)
+
+    //BASE CASES - to be satisfied
+    if(baseURLObj.hostname!==currentURLObj.hostname){
+      return pages //map of normalised errors
+    }
+
+    const normaliseCurrentURL = normaliseURL(currentURL)
+    if(pages[normaliseCurrentURL]>0){
+      pages[normaliseCurrentURL]++
+      return pages
+    }
+
+    pages[normaliseCurrentURL] =1
 
     try{
         const resp = await fetch(currentURL)
 
         if(resp.status>399){
-            console.log(`error in fetch with status code : ${resp.status} on page ${currentURL}`)
-            return
+            console.log(`EError in fetch with status code : ${resp.status} on page ${currentURL}`)
+            return pages
         }  // Test:- https://hostname.in/garbagepath
 
 
         const contentType = resp.headers.get("content-type")
         if(!contentType.includes("text/html")){ //application/xml is other type, text/html may have other parts like UTF encoding =>includes()
             console.log(`not-html response, as content type : ${contentType} on page ${currentURL}`)
-            return
+            return pages
         }// Test:- https://hostname.in/img.jpeg
 
-        console.log(await resp.text())
+        const htmlBody = (await resp.text())
+
+        const nextURLs =getURLSFromHTML(htmlBody,baseURL)
+
+        //therefore now calling back
+        for(const nextURL of nextURLs){
+          pages = await crawlPage(baseURL,nextURL,pages)
+        }
 
     }catch(err){
-        console.log(`error in fetch:- "${err.message}", on page "${currentURL}"` )
+        console.log(`EEError in fetch:- ${err.message}, on page ${currentURL}` )
     }
 
-
+    return pages
 }
 
 

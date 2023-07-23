@@ -2,7 +2,7 @@ const {crawlPage} = require('./crawl.js')
 
 
 
-function main(){
+async function main(){
     if (process.argv.length<3){
         console.log("seems invalid")
         process.exit(1) // more research to be done regarding the process
@@ -15,7 +15,12 @@ function main(){
 
 
     console.log(`🕷️ Spider Crawls the ${baseURL} `)
-    crawlPage(baseURL)
+    const pages = await crawlPage(baseURL,baseURL,{}) //currentURL at starrt is baseURL , {} empty object for pages
+
+    for(const page of Object.entries(pages)){ //cuz pages is not an array so ofcourse 
+        console.log(page)
+    }
+
 }
 
 main() 
