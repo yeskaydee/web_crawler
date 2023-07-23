@@ -65,3 +65,7 @@ There is a website called Medium, crawling throught that website is making it lo
 2. Stop a the exact moment the link is repeated <-- seems faulty in logic
 
 I am thinking of implementing these two later
+
+---
+Recently started using gitlens therfore putting out the timeline once again
+![Alt text](image-6.png)
