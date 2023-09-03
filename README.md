@@ -31,10 +31,6 @@ modifed the script in package.json => `npm start ` for running, main.js is entry
 
 Why normalise URLS [Cloudfare Docs](https://developers.cloudflare.com/rules/normalization/) => for `crawler.js` file
 
-Test Driven Development:-<br/>
-1.stub out the fn to be tested => stub code in crawl.js <br/>
-2.write the test for the fn => test script in crawl.test.js , prefix is the filname.js for testing , jest looks for `test.js` in the directory <br/>
-3.implement the fn <br/>
 
 ![Failed test output scenario](image.png)
 
