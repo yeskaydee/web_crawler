@@ -8,7 +8,7 @@ Making a web_crawler
 `npm install --save-dev jest` for developer only
 adding node_modules to .gitignore as specified before `touch .gitignore`
 
-`npm install jsdom` <br/>
+`npm install jsdom`  -- for getting urls by crawling <br/> 
 ~ Read [JSDOM documenatation](https://www.google.com/search?q=jsdom+documentation&oq=JSDOM+documentation&aqs=chrome.0.0i512j0i15i22i30j0i390i650.5206j0j7&sourceid=chrome&ie=UTF-8)
 
 
