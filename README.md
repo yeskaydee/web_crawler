@@ -4,7 +4,7 @@ Making a web_crawler
 
 .nvmrc is for setting the node version
 
-`nvm init ` for generating the json file(package.json), i am going to use .gitignore to ignore all the packages that might be installed while building this, so use `nvm install` , package.json is going to handle it all
+`npm init ` for generating the json file(package.json), i am going to use .gitignore to ignore all the packages that might be installed while building this, </br> so use `npm install` , package.json is going to handle it all
 `npm install --save-dev jest` for developer only
 adding node_modules to .gitignore as specified before `touch .gitignore`
 
